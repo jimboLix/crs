@@ -1,0 +1,81 @@
+<#include "/common/layout.html">
+<@header>
+</@header>
+<@body>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      <small>系统管理 > 字典项管理</small>
+    </h1>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <!-- Your Page Content Here -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+         <form action="/system/dict/list/1"  class="form-inline">
+          <div class="box-header">
+              <div class="input-group">
+                  <a class="btn btn-primary" href="javascript:;" onClick="javascript :history.back(-1);" data-title="返回" data-width="800" data-height="400"><i class="fa fa-reply"></i> 返回</a>
+              </div>
+            <@shiro.hasPermission name="dictAdd">
+	            <div class="input-group">
+	            	<a class="btn btn-primary dialog" href="javascript:;" data-title="创建字典项" data-url="/system/dict/dict/toAdd?typeValue=${typeValue!}" data-width="800" data-height="400"><i class="fa fa-plus"></i> 创建字典项</a>
+	            </div>
+            </@shiro.hasPermission>
+          </div><!-- /.box-header -->
+          </form>
+          <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+              <tr>
+                <th  width="100px">行号</th>
+                <th>字典项名称</th>
+                <th>字典项值</th>
+                <th>所属字典类型</th>
+                <th>所属字典类型值</th>
+                <th>描述</th>
+                <th width="320px">操作</th>
+              </tr>
+              <#list pageData.getRecords() as dict>
+              	  <tr>
+	                <td>${((pageData.current-1)*pageData.size +dict_index+1)!}</td>
+	                <td>${(dict.name)!}</td>
+	                <td>${(dict.value)!'--'}</td>
+	                <td>${typeName!'--'}</td>
+	                <td>${(dict.typeValue)!'--'}</td>
+	                <td>${(dict.desc)!'--'}</td>
+	                <td>
+	                	<@shiro.hasPermission name="dictEdit">
+	                		<a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="编辑" data-url="/system/dict/edit/${(dict.id)!}",data-width="800" data-height="400" > <i class="fa fa-pencil-square-o"></i> 编辑</a>
+	                	</@shiro.hasPermission>
+	                	<@shiro.hasPermission name="dictDel">
+		                	<a class="btn btn-danger btn-xs"
+		                	 data-tiggle="ajax"
+		                	 data-submit-url="/system/dict/del?id=${(dict.id)!}"
+		                	 data-confirm="您确定要删除该条记录吗?"><i class="fa fa-times"></i> 删除</a>
+	                	 </@shiro.hasPermission>
+	                </td>
+	              </tr>
+              </#list>
+            </table>
+          </div><!-- /.box-body -->
+          <div class="box-footer row">
+            <div class="col-md-6">
+         	  <#include "/common/paginateBar.html" />
+	  		  <@paginate pageData=pageData actionUrl="/system/dict/list/" urlParas="?typeValue=${typeValue!}&typeName=${typeName!}"  />
+            </div>
+            <div class="col-md-6 pull-left">
+	             <#include "/common/paginate.html" />
+	  			 <@paginate currentPage=pageData.getCurrent() totalPage=pageData.getPages() actionUrl="/system/dict/list/" urlParas="?pageSize=${pageSize!}&typeValue=${typeValue!}&typeName=${typeName!}"  />
+            </div>
+          </div>
+        </div><!-- /.box -->
+      </div>
+    </div>
+  </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+</@body>
+<@footer>
+</@footer>

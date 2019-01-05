@@ -1,0 +1,93 @@
+<#include "/common/layout_dl.html">
+<@header>
+</@header>
+<@body>
+<form class="form-horizontal layui-form layui-form-pane" method="post" action="/rome/doAdd">
+    <input type="hidden" name="id" value="${(rome.id)!}">
+    <input type="hidden" name="createTime" value="${(rome.createTime?string('yyyy/MM/dd HH:mm:ss'))!}">
+   <div class="box-body">
+     <div class="form-group">
+       <label  class="col-sm-2 control-label">会议室名称</label>
+       <div class="col-sm-10">
+      		<input type="text"  name="name" value="${(rome.name)!}" class="form-control" placeholder="请输入会议室名称" lay-verify="required">
+     	</div>
+     </div>
+     <div class="form-group">
+           <label class="col-sm-2 control-label">所属校区</label>
+           <div class="col-sm-10">
+           <select name="campus" id="campus" class="form-control select2" lay-ignore style="width: 100%;" lay-verify="required" >
+               <option value="">--请选择--</option>
+               <#list dictList as dict>
+              <option id="${(dict.value)!}" value="${(dict.name)!}" ${(rome.campus ==dict.name)?string('selected="selected"',"")}>${(dict.name)!}</option>
+            </#list>
+          </select>
+          </div>
+     </div>
+       <div class="form-group">
+           <label class="col-sm-2 control-label">所在办公楼</label>
+           <div class="col-sm-10">
+               <select name="building" id="build" class="form-control select2" lay-ignore style="width: 100%;" lay-verify="required" >
+                   <option value="">--请选择--</option>
+                   <#list builds as dict>
+                   <option value="${(dict.name)!}" ${(rome.building ==dict.name)?string('selected="selected"',"")}>${(dict.name)!}</option>
+               </#list>
+               </select>
+           </div>
+       </div>
+     <div class="form-group">
+       <label class="col-sm-2 control-label">会议室详细位置</label>
+        <div class="col-sm-10">
+       <input type="text" class="form-control"  name="location"  value="${(rome.location)!}" placeholder="请输入会议室位置" lay-verify="required">
+     	</div>
+     </div>
+     <div class="form-group">
+           <label  class="col-sm-2 control-label">编号</label>
+           <div class="col-sm-10">
+               <input type="text" class="form-control" value="${(rome.no)!}" name="no" placeholder="请输入会议室编号" lay-verify="required|check" check-url="/rome/checkNo?id=${(rome.id)!}">
+           </div>
+     </div>
+     <div class="form-group">
+            <label class="col-sm-2 control-label">会议室设施</label>
+             <div class="col-sm-10">
+            <textarea class="form-control" name="facilities" rows="3" placeholder="请输入会议室配套设施" >${(rome.facilities)!}</textarea>
+          	</div>
+          </div>
+     <div class="form-group">
+     	  <label class="col-sm-2 control-label">会议室容量（人）</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" value="${(rome.volume)!}" name="volume" placeholder="请输入会议室容量" lay-verify="required|number">
+          </div>
+        </div>
+        <div class="form-group">
+        	<label class="col-sm-2 control-label">会议室详情</label>
+        	 <div class="col-sm-10">
+                 <textarea class="form-control" name="detail" rows="3" placeholder="请输入会议室详情" >${(rome.detail)!}</textarea>
+          </div>
+        </div>
+         <div class="form-group">
+         		<label class="col-sm-2 control-label">&nbsp;</label>
+         		 <div class="col-sm-10">
+         		 	<button type="submit" class="btn btn-success" lay-submit lay-filter="submit"><i class="fa fa-save"></i>  提 交</button>
+   		  </div>
+         </div>
+     </div><!-- /.box-body -->
+ </form>
+</@body>
+<@footer>
+<script>
+    $("#campus").on('change',function(){
+        debugger;
+        $("#build").empty();
+        var pid = $(this).find("option:selected").attr("id");
+        if(pid) {
+            $.post('/system/dict/getBuild', {pid: pid}, function (response) {
+                if (response.code == 200) {
+                    $("#build").select2({
+                        data: response.data
+                    });
+                }
+            });
+        }
+    });
+</script>
+</@footer>

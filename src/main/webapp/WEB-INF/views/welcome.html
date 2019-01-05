@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>安徽师范大学会议室管理系统</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=""/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- //custom-theme -->
+    <link href="/app/front/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/app/front/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- js -->
+    <script type="text/javascript" src="/app/front/js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- font-awesome-icons -->
+    <link href="app/front/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+</head>
+
+<body>
+<!-- banner -->
+<div class="banner1">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header navbar-left">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="w3_agile_phone">
+            <p><i class="fa fa-phone" aria-hidden="true"></i>
+                <button style="cursor:pointer">登录系统</button>
+            </p>
+        </div>
+    </nav>
+    <div class="wthree_banner1_info">
+    </div>
+</div>
+<!-- //banner -->
+<!-- rome -->
+<div class="courses">
+    <div class="container">
+        <div class="grid_3 grid_4 w3_agileits_icons_page">
+            <div class="section group">
+                <div class="box">
+                    <div class="title ">
+                        <h3 class="page-header icon-subheading">查询条件</h3>
+                    </div>
+                    <div class="box_content">
+                        <div class="col-lg-6 in-gp-tl">
+                            <div class="input-group">
+						        <span class="input-group-btn">
+							        <button class="btn btn-default" type="button">会议室位置</button>
+						        </span>
+                                <input type="text" class="form-control" placeholder="Search for...">
+                            </div><!-- /input-group -->
+                        </div>
+                        <div class="col-lg-6 in-gp-tl">
+                            <div class="input-group">
+						        <span class="input-group-btn">
+							        <button class="btn btn-default" type="button">使用时间</button>
+						        </span>
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+							        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						        </span>
+                            </div><!-- /input-group -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icons">
+                <h3 class="agileits-icons-title">会议室列表</h3>
+                <section id="new">
+                    <h3 class="page-header page-header icon-subheading">#{count!} 会议室 </h3>
+                    <div class="row fontawesome-icon-list">
+                        <#list romeList! as rome>
+                        <div class="icon-box col-md-3 col-sm-4">
+                            <a class="agile-icon" href="javascript:void(0)" onclick="romeDetail('${rome.id!}')">
+                                <i class=" fa-minus-square-o" aria-hidden="true"></i><span class="text-muted">${rome.name!}</span>
+                            </a>
+                        </div>
+                    </#list>
+            </div>
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+<!-- rome -->
+<!-- footer -->
+<!--<div class="footer">-->
+<!--</div>-->
+<!-- //footer -->
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="/app/front/js/move-top.js"></script>
+<script type="text/javascript" src="/app/front/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+        });
+    });
+</script>
+<!-- start-smooth-scrolling -->
+<!-- for bootstrap working -->
+<script src="/app/front/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+        /***
+         * 查询所有的会议室
+         */
+        function getMeetingRome() {
+
+        }
+
+    });
+    /**
+     * 查询会议室详情
+     */
+    function  romeDetail(romeId) {
+        window.location.href="/front/romeDetail?romeId="+romeId;
+    }
+</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

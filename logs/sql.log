@@ -1,0 +1,135 @@
+2019-01-05 11:17:04.463 [qtp681786825-23] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:17:04.486 [qtp681786825-23] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:17:04.546 [qtp681786825-23] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:19:59.805 [qtp2002285602-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:19:59.829 [qtp2002285602-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:19:59.858 [qtp2002285602-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:19:59.873 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:19:59.875 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:19:59.881 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:19:59.884 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:19:59.885 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:19:59.892 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:20:57.806 [qtp2002285602-37] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:20:57.807 [qtp2002285602-37] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:20:57.808 [qtp2002285602-37] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:20:57.810 [qtp2002285602-37] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:20:57.811 [qtp2002285602-37] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:20:57.813 [qtp2002285602-37] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:21:20.290 [qtp2002285602-40] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:21:20.291 [qtp2002285602-40] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:21:20.292 [qtp2002285602-40] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:21:20.296 [qtp2002285602-40] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:21:20.297 [qtp2002285602-40] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:21:20.299 [qtp2002285602-40] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:21:20.301 [qtp2002285602-40] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:21:20.302 [qtp2002285602-40] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:21:20.303 [qtp2002285602-40] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:23:46.670 [qtp2002285602-23] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:23:46.670 [qtp2002285602-23] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:23:46.672 [qtp2002285602-23] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:23:46.674 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:23:46.674 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:23:46.675 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:23:46.678 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:23:46.678 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:23:46.680 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:24:03.541 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:24:03.541 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:24:03.543 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:24:03.545 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:24:03.545 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:24:03.546 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:24:54.705 [qtp2002285602-38] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:24:54.705 [qtp2002285602-38] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:24:54.706 [qtp2002285602-38] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:24:54.708 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:24:54.709 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:24:54.709 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:24:54.712 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:24:54.714 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:24:54.716 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:25:21.975 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:25:21.976 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:25:21.979 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:25:22.577 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:25:22.578 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:25:22.585 [qtp2002285602-23] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:26:18.501 [qtp2002285602-38] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:26:18.502 [qtp2002285602-38] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:26:18.503 [qtp2002285602-38] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:26:24.632 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:26:24.632 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:26:24.633 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:26:24.635 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:26:24.635 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:26:24.639 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:27:15.298 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:27:15.298 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:27:15.300 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:27:15.302 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:27:15.302 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:27:15.304 [qtp2002285602-38] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:28:11.570 [qtp2002285602-41] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:28:11.571 [qtp2002285602-41] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:28:11.573 [qtp2002285602-41] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:28:11.575 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:28:11.576 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:28:11.577 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:28:11.579 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:28:11.580 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:28:11.581 [qtp2002285602-41] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:33:21.734 [qtp2002285602-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:33:21.757 [qtp2002285602-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:33:21.774 [qtp2002285602-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:33:21.787 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:33:21.788 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:33:21.789 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:33:21.791 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:33:21.792 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:33:21.797 [qtp2002285602-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:34:27.769 [qtp1781227569-18] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:34:27.793 [qtp1781227569-18] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:34:27.812 [qtp1781227569-18] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:34:27.825 [qtp1781227569-18] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:34:27.825 [qtp1781227569-18] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:34:27.827 [qtp1781227569-18] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:34:27.830 [qtp1781227569-18] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:34:27.830 [qtp1781227569-18] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:34:27.835 [qtp1781227569-18] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:34:32.966 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:34:32.968 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:34:32.970 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:34:32.972 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:34:32.973 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:34:32.974 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:34:46.942 [qtp1781227569-40] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:34:46.943 [qtp1781227569-40] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:34:46.948 [qtp1781227569-40] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:34:47.293 [qtp1781227569-40] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:34:47.296 [qtp1781227569-40] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:34:47.303 [qtp1781227569-40] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:38:06.288 [qtp1781227569-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:38:06.311 [qtp1781227569-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:38:06.329 [qtp1781227569-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:38:13.043 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:38:13.044 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:38:13.045 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:38:13.049 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:38:13.049 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:38:13.056 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:38:32.648 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:38:32.650 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:38:32.653 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:38:33.123 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:38:33.124 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:38:33.132 [qtp1781227569-39] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
+2019-01-05 11:39:39.983 [qtp1781227569-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==>  Preparing: SELECT Id,sysKey,sysName,sysValue,sort,sysDesc FROM sys_setting ORDER BY sort ASC 
+2019-01-05 11:39:39.983 [qtp1781227569-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:39:39.986 [qtp1781227569-24] [DEBUG] c.v.m.SysSettingMapper.selectList.debug 159 -- <==      Total: 3
+2019-01-05 11:39:42.738 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==>  Preparing: SELECT COUNT(1) FROM t_rome WHERE (1=1) 
+2019-01-05 11:39:42.739 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- ==> Parameters: 
+2019-01-05 11:39:42.740 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectCount.debug 159 -- <==      Total: 1
+2019-01-05 11:39:42.742 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==>  Preparing: SELECT id,`name`,`no`,`location`,campus,building,volume,facilities,detail,createTime FROM t_rome WHERE (1=1) 
+2019-01-05 11:39:42.742 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- ==> Parameters: 
+2019-01-05 11:39:42.744 [qtp1781227569-24] [DEBUG] c.v.mapper.RomeMapper.selectList.debug 159 -- <==      Total: 2
