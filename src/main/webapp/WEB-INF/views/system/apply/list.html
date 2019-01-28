@@ -1,0 +1,71 @@
+<#include "/common/layout.html">
+<@header>
+</@header>
+<@body>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      <small>系统管理 > 我的申请</small>
+    </h1>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <!-- Your Page Content Here -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+         <form action="/system/dict/list/1"  class="form-inline">
+          <div class="box-header">
+              <div class="input-group">
+                  <a class="btn btn-primary" href="javascript:;" onClick="javascript :history.back(-1);" data-title="返回" data-width="800" data-height="400"><i class="fa fa-reply"></i> 返回</a>
+              </div>
+	            <div class="input-group">
+	            	<a class="btn btn-primary dialog" href="javascript:;" data-title="新建申请" data-url="/apply/toCreate" data-width="1000" data-height="800"><i class="fa fa-plus"></i> 新建申请</a>
+	            </div>
+          </div><!-- /.box-header -->
+          </form>
+          <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+              <tr>
+                <th  width="100px">行号</th>
+                <th>流程名称</th>
+                <th>申请时间</th>
+                <th>状态</th>
+                <th width="320px">操作</th>
+              </tr>
+              <#list pageData.getRecords() as instance>
+              	  <tr>
+	                <td>${((pageData.current-1)*pageData.size +instance_index+1)!}</td>
+	                <td>${(instance.name)!}</td>
+	                <td>${(instance.createTime?string('yyyy/MM/dd HH:mm:ss'))!'--'}</td>
+	                <td>
+                        <#if instance.isPass == 0 && instance.isEnd == 1>未通过<#elseif instance.isPass == 1 && instance.isEnd == 1>通过<#elseif instance.nodeIndex == - 1>退回<#else>审批中</#if>
+                    </td>
+	                <td>
+                        <#if instance.nodeIndex == -1>
+                        <a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="编辑" data-url="/apply/edit?workFlowInstanceId=${(instance.id)!}",data-width="800" data-height="400" > <i class="fa fa-pencil-square-o"></i> 编辑</a>
+                        </#if>
+	                </td>
+	              </tr>
+              </#list>
+            </table>
+          </div><!-- /.box-body -->
+          <div class="box-footer row">
+            <div class="col-md-6">
+         	  <#include "/common/paginateBar.html" />
+	  		  <@paginate pageData=pageData actionUrl="/system/dict/list/" urlParas="?typeValue=${typeValue!}&typeName=${typeName!}"  />
+            </div>
+            <div class="col-md-6 pull-left">
+	             <#include "/common/paginate.html" />
+	  			 <@paginate currentPage=pageData.getCurrent() totalPage=pageData.getPages() actionUrl="/system/dict/list/" urlParas="?pageSize=${pageSize!}&typeValue=${typeValue!}&typeName=${typeName!}"  />
+            </div>
+          </div>
+        </div><!-- /.box -->
+      </div>
+    </div>
+  </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+</@body>
+<@footer>
+</@footer>

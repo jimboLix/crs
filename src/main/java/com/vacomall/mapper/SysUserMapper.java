@@ -17,4 +17,8 @@ import com.vacomall.entity.SysUser;
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
 	List<Map<Object, Object>> selectUserList(Page<Map<Object, Object>> page, @Param("search") String search);
+	/**
+	 * 根据RoleId获取用户
+	 */
+	List<SysUser> getUsersByRole(String roleId);
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vacomall.mapper.WorkFlowNodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.vacomall.entity.vo.WorkFlowNodeVo">
+        <id column="id" property="id" />
+        <result column="workFlowInstanceId" property="workFlowInstanceId" />
+        <result column="reviewerId" property="reviewerId" />
+        <result column="workFlowName" property="workFlowName" />
+        <result column="applyUserName" property="applyUserName" />
+        <result column="reviewerName" property="reviewerName" />
+        <result column="opinion" property="opinion" />
+        <result column="nodeIndex" property="nodeIndex" />
+        <result column="status" property="status" />
+        <result column="beginTime" property="beginTime" />
+        <result column="endTime" property="endTime" />
+    </resultMap>
+
+    <select id="myTasksPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+        SELECT t4.* ,t3.userName AS applyUserName FROM sys_user t3 JOIN(
+        SELECT t2.*,t1.name AS workFlowName,t1.applyUser FROM t_workflow_instance t1
+        JOIN t_workflow_node t2 ON t1.id=t2.workFlowInstanceId
+        <where>
+
+            <if test="userId != null and userId != ''">
+                AND reviewerId = #{userId}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+        ) t4 ON t4.applyUser=t3.id
+    </select>
+
+
+</mapper>

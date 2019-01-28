@@ -1,0 +1,32 @@
+<#include "/common/layout_dl.html">
+<@header>
+</@header>
+<@body>
+<form role="form" class="layui-form layui-form-pane pd10" method="post" action="/system/dict/dict/doAdd">
+    <input type="hidden" name="id" value="">
+    <input type="hidden" name="createTime" value="">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="name">名称</label>
+            <input type="text" id="name" name="name" value="" class="form-control" lay-verify="required|check" check-url="/system/dict/check/name?checkType=dict&typeValue=${typeValue!}&id=${(dict.id)!}" placeholder="字典项名称">
+        </div>
+        <div class="form-group">
+            <label for="value">申请人</label>
+            <input type="text" id="value" name="value" value="${(sysUser.userName)!}" class="form-control" readonly="readonly">
+        </div>
+        <div class="form-group">
+            <label for="typeValue">字典类型值</label>
+            <input type="text" id="typeValue" name="typeValue" class="form-control" value="${typeValue!}" disabled>
+        </div>
+        <div class="form-group">
+            <label>字典项描述</label>
+            <textarea class="form-control" name="desc" value="" rows="3" placeholder="请输入描述，最多300个字符 ..." ></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" lay-submit lay-filter="submit"><i class="fa fa-save"></i>  提 交</button>
+        </div>
+    </div>
+</form>
+</@body>
+<@footer>
+</@footer>

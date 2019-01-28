@@ -40,7 +40,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="w3_agile_phone">
             <p><i class="fa fa-phone" aria-hidden="true"></i>
-                <button style="cursor:pointer">登录系统</button>
+                <button style="cursor:pointer" id="login">登录系统</button>
             </p>
         </div>
     </nav>
@@ -138,6 +138,9 @@
         function getMeetingRome() {
 
         }
+        $("#login").click(function () {
+            window.location.href="/index";
+        });
 
     });
     /**

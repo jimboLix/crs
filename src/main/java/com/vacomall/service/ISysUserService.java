@@ -1,5 +1,6 @@
 package com.vacomall.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.baomidou.mybatisplus.plugins.Page;
@@ -30,5 +31,10 @@ public interface ISysUserService extends IService<SysUser> {
 	 * 删除用户
 	 */
 	void delete(String id);
+
+	/**
+	 * 根据RoleId获取用户
+	 */
+	List<SysUser> getUsersByRole(String roleId);
 
 }

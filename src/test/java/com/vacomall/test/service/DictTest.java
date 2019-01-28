@@ -42,9 +42,9 @@ public class DictTest extends SpringTest {
         dictService.insert(dictN);
     }
 
-    @Test
-    public void checkValue(){
-        int i = this.dictTypeService.countByValue("0010","");
-        Assert.assertFalse(true);
-    }
+//    @Test
+//    public void checkValue(){
+//        int i = this.dictTypeService.countByValue("0010","");
+//        Assert.assertFalse(true);
+//    }
 }

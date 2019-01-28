@@ -6,8 +6,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      	主面板
-      <small>显示系统信息</small>
+      <small>系统消息</small>
     </h1>
   </section>
 
@@ -15,43 +14,15 @@
   <section class="content">
 	
 	<div class="row">
-	  <div class="col-lg-3 col-xs-6">
-         <!-- small box -->
-         <div class="small-box  bg-yellow">
-           <div class="inner">
-             <h3>${(sm?string(',##0.00'))!'0.00'}</h3>
-             <p>今日收款</p>
-           </div>
-           <div class="icon">
-             <i class="fa fa-jpy"></i>
-           </div>
-           <a href="#" class="small-box-footer">详细信息 <i class="fa fa-arrow-circle-right"></i></a>
-         </div>
-       </div><!-- ./col -->
-       
        <div class="col-lg-3 col-xs-6">
          <!-- small box -->
          <div class="small-box bg-aqua">
            <div class="inner">
              <h3>${(ct)!'0'}</h3>
-             <p>今日订单数</p>
+             <p>我的审批</p>
            </div>
            <div class="icon">
              <i class="fa fa-cart-plus"></i>
-           </div>
-           <a href="#" class="small-box-footer">详细信息 <i class="fa fa-arrow-circle-right"></i></a>
-         </div>
-       </div><!-- ./col -->
-       
-         <div class="col-lg-3 col-xs-6">
-         <!-- small box -->
-         <div class="small-box  bg-red">
-           <div class="inner">
-             <h3>${(totalMoney?string(',##0.00'))!'0.00'}</h3>
-             <p>累计收款</p>
-           </div>
-           <div class="icon">
-             <i class="fa  fa-btc"></i>
            </div>
            <a href="#" class="small-box-footer">详细信息 <i class="fa fa-arrow-circle-right"></i></a>
          </div>
@@ -62,12 +33,12 @@
          <div class="small-box bg-green">
            <div class="inner">
              <h3>${(totalOrderCount)!'0'}</h3>
-             <p>累计订单数</p>
+             <p>我的申请</p>
            </div>
            <div class="icon">
              <i class="fa fa-car"></i>
            </div>
-           <a href="#" class="small-box-footer">详细信息 <i class="fa fa-arrow-circle-right"></i></a>
+           <a href="/system/dict/type/list/1" class="small-box-footer">详细信息 <i class="fa fa-arrow-circle-right"></i></a>
          </div>
        </div><!-- ./col -->
        <!-- fix for small devices only -->
@@ -77,18 +48,6 @@
      <div class="row">
      	<div class="col-md-12">
      		<div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title">最近十二个月的收益趋势图(金额（单位:万元）/月)</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
-                <div class="box-body">
-                  <div class="chart">
-                    <canvas id="lineChart" style="height:400px"></canvas>
-                  </div>
-                </div><!-- /.box-body -->
               </div><!-- /.box -->
      	</div>
      </div>

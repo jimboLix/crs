@@ -3,12 +3,15 @@ package com.vacomall.common.util;
 import java.io.File;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Pattern;
 
+import com.alibaba.fastjson.JSON;
+import com.vacomall.entity.WorkFlow;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
+
 /**
  * 通用工具类
  * @author Gaojun.Zhou
@@ -135,5 +138,27 @@ public class CommonUtil {
 		where = where.replaceAll("gq", " >= ");
 		
 		return where;
-	} 
+	}
+
+	/**
+	 * 获取流程节点信息
+	 * @param workFlow
+	 * @return
+	 */
+	public static Map<String, String> getWorkFlowNodeMap(WorkFlow workFlow,int index) {
+		Map<String, String> resultMap = new HashMap<>();
+		if(null != workFlow) {
+			String workFlowDetail = workFlow.getWorkFlowDetail();
+			if (StringUtils.isNotEmpty(workFlowDetail)) {
+				ArrayList nodeList = JSON.parseObject(workFlowDetail, ArrayList.class);
+				if (!CollectionUtils.isEmpty(nodeList)) {
+					if(index < nodeList.size()) {
+						resultMap = (Map<String, String>) nodeList.get(index);
+					}
+				}
+			}
+		}
+		return resultMap;
+	}
+
 }

@@ -1,0 +1,68 @@
+<#include "/common/layout.html">
+<@header>
+</@header>
+<@body>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      <small>系统管理 > 我的任务</small>
+    </h1>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <!-- Your Page Content Here -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+         <form action="/system/dict/list/1"  class="form-inline">
+          <div class="box-header">
+              <div class="input-group">
+                  <a class="btn btn-primary" href="javascript:;" onClick="javascript :history.back(-1);" data-title="返回" data-width="1100" data-height="1200"><i class="fa fa-reply"></i> 返回</a>
+              </div>
+          </div><!-- /.box-header -->
+          </form>
+          <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+              <tr>
+                <th  width="100px">行号</th>
+                <th>任务名称</th>
+                <th>开始时间</th>
+                <th>状态</th>
+                <th width="320px">操作</th>
+              </tr>
+              <#list pageData.getRecords() as node>
+              	  <tr>
+	                <td>${((pageData.current-1)*pageData.size +node_index+1)!}</td>
+	                <td>${(node.workFlowName)!}</td>
+	                <td>${(node.beginTime?string('yyyy/MM/dd HH:mm:ss'))!'--'}</td>
+	                <td>
+                        <#if node.status == 0>活动<#elseif node.status == 1 >未通过<#elseif node.status == 2>同意<#else>退回</#if>
+                    </td>
+	                <td>
+                        <#if node.status == 0>
+	                		<a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="审批" data-url="/task/detail?taskId=${(node.id)!}",data-width="1200" data-height="900" > <i class="fa fa-pencil-square-o"></i> 审批</a>
+                    </#if>
+                    </td>
+	              </tr>
+              </#list>
+            </table>
+          </div><!-- /.box-body -->
+          <div class="box-footer row">
+            <div class="col-md-6">
+         	  <#include "/common/paginateBar.html" />
+	  		  <@paginate pageData=pageData actionUrl="/task/mytask/" urlParas="?typeValue=${typeValue!}&typeName=${typeName!}"  />
+            </div>
+            <div class="col-md-6 pull-left">
+	             <#include "/common/paginate.html" />
+	  			 <@paginate currentPage=pageData.getCurrent() totalPage=pageData.getPages() actionUrl="/system/dict/list/" urlParas="?pageSize=${pageSize!}&typeValue=${typeValue!}&typeName=${typeName!}"  />
+            </div>
+          </div>
+        </div><!-- /.box -->
+      </div>
+    </div>
+  </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+</@body>
+<@footer>
+</@footer>

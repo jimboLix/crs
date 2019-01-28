@@ -1,0 +1,187 @@
+<#include "/common/layout_dl.html">
+<@header>
+</@header>
+<@body>
+<form>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">流程名称</button>
+                    </span>
+                    <input type="text" id="name1" name="name" class="form-control" value="${(apply.name)!}" readonly="readonly">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">申请人</button>
+                    </span>
+                    <input type="text"  class="form-control" value="${(user.userName)!}" readonly="readonly">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">详细信息</h3>
+    </div>
+    <div class="box-body">
+        <div class="row">
+        <div class="col-xs-6">
+            <div class="input-group">
+            <span class="input-group-addon">申请会议室</span>
+            <input readonly="readonly" class="form-control" value="${(rome.name)!}">
+            </div>
+        </div>
+        <div class="col-xs-6">
+             <div class="input-group">
+                    <span class="input-group-addon">会议室位置</span>
+                    <input readonly="readonly" class="form-control" value="${(rome.location)!}">
+             </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="input-group">
+                    <span class="input-group-addon">使用时间起</span>
+                    <input  <#if flow.nodeIndex < 0><#else>readonly="readonly"</#if> class="form-control" value="${(apply.beginTime?string('yyyy/MM/dd HH:mm:ss'))!'--'}">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-group">
+                    <span class="input-group-addon">使用时间止</span>
+                    <input readonly="readonly" class="form-control" value="${(apply.endTime?string('yyyy/MM/dd HH:mm:ss'))!'--'}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="input-group">
+                    <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;申请时间</span>
+                    <input readonly="readonly" class="form-control" value="${(apply.applyTime?string('yyyy/MM/dd HH:mm:ss'))!'--'}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;申请详情</span>
+                    <textarea class="form-control"  rows="3" readonly="readonly">${(apply.detail)!}</textarea>
+                </div>
+            </div>
+        </div>
+        <!--<#if allNodes ??>-->
+        <!--<#list allNodes as node>-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="input-group">-->
+                    <!--<span class="input-group-addon">申请详情</span>-->
+                    <!--<textarea class="form-control"  rows="3" readonly="readonly">${(apply.detail)!}</textarea>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--</#list>-->
+    <!--</#if>-->
+        <!-- /.row -->
+    </div>
+    <!-- /.box-body -->
+</div>
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">审核信息</h3>
+    </div>
+    <div class="box-body">
+        <#if allNodes ??>
+        <#list allNodes as node>
+        <div class="row">
+        <div class="col-xs-3">
+        <div class="input-group">
+        <span class="input-group-addon">审核人</span>
+            <input type="text" name="name" class="form-control" value="${(node.reviewerName)!}" readonly="readonly">
+        </div>
+        </div>
+            <div class="col-xs-9">
+                <div class="input-group">
+                    <span class="input-group-addon">审核意见</span>
+                    <input type="text" name="name" class="form-control" value="${(node.opinion)!}" readonly="readonly">
+                </div>
+            </div>
+        </div>
+        </#list>
+        </#if>
+    </div>
+</div>
+<form action="/task/deal" role="form" method="post" class="layui-form layui-form-pane pd10">
+    <input type="hidden" name="instanceId" value="${(apply.workFlowInstanceId)!}">
+    <input type="hidden" name="applyId" value="${(apply.id)!}">
+    <input type="hidden" name="nodeId" value="${(current.id)!}">
+    <input type="hidden" name="isEnd" value="${showEnd!}">
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">审核</h3>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <span class="input-group-addon">审核意见</span>
+                    <textarea class="form-control"  rows="3" name="opinion" ></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="status" id="optionsRadios1" value="2" checked="" title="同意">
+
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="status" id="optionsRadios2" value="1" title="不同意">
+
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="status" id="optionsRadios3" value="-1" title="退回">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <#if !showEnd>
+                <div class="input-group">
+                    <span class="input-group-addon">转发给</span>
+                <select name="nextUser" id="user" class="form-control select2" lay-ignore style="width: 100%;" lay-verify="required" >
+                    <#list users as u>
+                    <option value="${u.id}">${u.userName}</option>
+                    </#list>
+                </select>
+                </div>
+                </#if>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-2">
+        &nbsp;
+</div>
+    <div class="col-xs-2">
+        <button type="submit" class="btn btn-success" lay-submit lay-filter="submit">确定</button>
+</div>
+    <#if showEnd>
+    <div class="col-xs-2">
+        <button type="submit" class="btn btn-success" lay-submit lay-filter="submit">办结</button>
+    </#if>
+</div>
+</form>
+</@body>
+<@footer>
+<script type="application/javascript">
+</script>
+</@footer>

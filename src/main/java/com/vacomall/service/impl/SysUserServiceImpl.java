@@ -1,9 +1,14 @@
 package com.vacomall.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.vacomall.service.ISysUserRoleService;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +33,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 	@Autowired private SysUserMapper userMapper;
 	
 	@Autowired private SysUserRoleMapper userRoleMapper;
+	@Autowired
+	private ISysUserRoleService userRoleService;
 	
 	@Override
 	public void insertUser(SysUser user, String[] roleIds) {
@@ -79,6 +86,17 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 		// TODO Auto-generated method stub
 		this.deleteById(id);
 		userRoleMapper.delete(new EntityWrapper<SysUserRole>().addFilter("userId = {0}", id));
+	}
+
+	@Override
+	public List<SysUser> getUsersByRole(String roleId) {
+		List<SysUser> userList = new ArrayList<>();
+		try{
+			userList = userMapper.getUsersByRole(roleId);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return userList;
 	}
 
 
