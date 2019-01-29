@@ -92,7 +92,7 @@ public class TaskController extends SuperController {
         //获取本节点之前审核信息
         Integer nodeIndex = workFlowInstance.getNodeIndex();
         List<WorkFlowNode> allFlowNodes = new ArrayList<>();
-        for (int i = 0;i <= nodeIndex;i++){
+        for (int i = 0;i < nodeIndex;i++){
             Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
             wrapper.eq("workFlowInstanceId",workFlowInstanceId);
             wrapper.eq("nodeIndex",i);

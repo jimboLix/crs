@@ -133,11 +133,30 @@ public class ApplyController extends SuperController {
     public String edit(Model model,String workFlowInstanceId){
         //先获取流程信息
         WorkFlowInstance workFlowInstance = workFlowInstanceService.selectById(workFlowInstanceId);
+        WorkFlow workFlow = workFlowService.selectById(workFlowInstance.getWorkFlowId());
         model.addAttribute("workIns",workFlowInstance);
-        Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
+        Wrapper<Apply> wrapper = new EntityWrapper<>();
         wrapper.eq("workFlowInstanceId",workFlowInstanceId);
-        WorkFlowNode workFlowNode = workFlowNodeService.selectOne(wrapper);
-        model.addAttribute("apply",workFlowNode);
+        Apply apply = applyService.selectOne(wrapper);
+//        Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
+//        wrapper.eq("workFlowInstanceId",workFlowInstanceId);
+//        WorkFlowNode workFlowNode = workFlowNodeService.selectOne(wrapper);
+        model.addAttribute("apply",apply);
+
+        //获取所有的会议室以供选择
+        List<MeetingRome> romeList = romeService.selectList(new EntityWrapper<>());
+        model.addAttribute("romesList",romeList);
+        //获取流程类型以供选择
+        List<WorkFlow> workFlows = workFlowService.selectList(new EntityWrapper<>());
+        model.addAttribute("workFlows",workFlows);
+        //获取下一节点的可以转发人员的列表
+        Map<String, String> nodeMap = CommonUtil.getWorkFlowNodeMap(workFlow, 0);
+        String roleId = nodeMap.get("roleId");
+        if (StringUtils.isNotEmpty(roleId)) {
+            List<SysUser> users = this.sysUserService.getUsersByRole(roleId);
+            model.addAttribute("users",users);
+        }
+
         return "system/apply/edit";
     }
 
