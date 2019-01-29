@@ -90,17 +90,19 @@ public class TaskController extends SuperController {
         MeetingRome rome = romeService.selectById(apply.getRomeId());
         model.addAttribute("rome",rome);
         //获取本节点之前审核信息
-        Integer nodeIndex = workFlowInstance.getNodeIndex();
-        List<WorkFlowNode> allFlowNodes = new ArrayList<>();
-        for (int i = 0;i < nodeIndex;i++){
-            Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
-            wrapper.eq("workFlowInstanceId",workFlowInstanceId);
-            wrapper.eq("nodeIndex",i);
-            WorkFlowNode workFlowNodes = workFlowNodeService.selectOne(wrapper);
-            if(null != workFlowNodes) {
-                allFlowNodes.add(workFlowNodes);
-            }
-        }
+//        for (int i = 0;i < nodeIndex;i++){
+//            Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
+//            wrapper.eq("workFlowInstanceId",workFlowInstanceId);
+//            wrapper.eq("nodeIndex",i);
+//            WorkFlowNode workFlowNodes = workFlowNodeService.selectOne(wrapper);
+//            if(null != workFlowNodes) {
+//                allFlowNodes.add(workFlowNodes);
+//            }
+//        }
+        Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
+        wrapper.eq("workFlowInstanceId",workFlowInstanceId);
+        wrapper.orderBy("beginTime",false);
+        List<WorkFlowNode> allFlowNodes = workFlowNodeService.selectList(wrapper);
         model.addAttribute("allNodes",allFlowNodes);
         //获取下一节点人员
         String workFlowId = workFlowInstance.getWorkFlowId();

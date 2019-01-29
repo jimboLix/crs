@@ -78,4 +78,6 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
         this.insert(apply);
         return Rest.ok();
     }
+
+
 }

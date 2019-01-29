@@ -143,6 +143,9 @@ public class WorkFlowInstanceServiceImpl extends ServiceImpl<WorkFlowInstanceMap
             nextNode.setWorkFlowInstanceId(workFlowInstance.getId());
             nextNode.setNodeIndex(workFlowNode.getNodeIndex()+1);
             workFlowNodeService.insert(nextNode);
+            //更新流程所在节点
+            workFlowInstance.setNodeIndex(nextNode.getNodeIndex());
+            this.updateAllColumnById(workFlowInstance);
         }
 
     }
@@ -157,14 +160,16 @@ public class WorkFlowInstanceServiceImpl extends ServiceImpl<WorkFlowInstanceMap
         workFlowNode.setReviewerName(user.getUserName());
         workFlowNode.setReviewerId(user.getId());
         workFlowNode.setOpinion(opinion);
+        int currentIndex = workFlowNode.getNodeIndex();
         //设置退回状态
         workFlowNode.setStatus(-1);
+        workFlowNode.setNodeIndex(-1);
         //更新
         workFlowNodeService.updateAllColumnById(workFlowNode);
         //获取流程实例，更新当前流程所在的节点
         WorkFlowInstance workFlowInstance = this.selectById(instanceId);
         //获取上一节点
-        int i = workFlowNode.getNodeIndex() - 1;
+        int i = currentIndex - 1;
         //如果i小于0则说明退回的是申请人，否则退回到上一个节点
         if(i < 0){
             //不需要获取上一节点
