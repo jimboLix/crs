@@ -32,11 +32,11 @@
         </div>
         <div class="form-group">
             <label for="daterange">使用时间</label>
-            <input type="text" name="daterange" id="daterange" value="${daterange!}" class="form-control date" id="daterange" placeholder="开始日期  - 结束日期">
+            <input type="text" name="daterange" id="daterange"  class="form-control date" id="daterange" placeholder="开始日期  - 结束日期">
         </div>
         <div class="form-group">
             <label>申请理由</label>
-            <textarea class="form-control" name="apply.detail" value="${(apply.detail)!}" rows="3" placeholder="最多300个字符 ..." ></textarea>
+            <textarea class="form-control" name="apply.detail" rows="3" placeholder="最多300个字符 ..." >${(apply.detail)!}</textarea>
         </div>
         <div class="form-group">
             <label for="user">转发给</label>
@@ -47,6 +47,8 @@
             <button type="submit" class="btn btn-success" lay-submit lay-filter="submit"><i class="fa fa-save"></i>  提 交</button>
         </div>
     </div>
+    <input type="hidden" id="start" value="${(apply.beginTime?string('yyyy/MM/dd HH:mm'))!}">
+    <input type="hidden" id="end" value="${(apply.endTime?string('yyyy/MM/dd HH:mm'))!}">
 </form>
 </@body>
 <@footer>
@@ -55,8 +57,8 @@
         $("#daterange").daterangepicker({
             timePicker: true,
             timePicker24Hour:true,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
+            startDate: $("#start").val(),
+            endDate: $("#end").val(),
             locale: {
                 format: 'YYYY/MM/DD hh:mm A',
                 "separator": "--",
@@ -92,6 +94,7 @@
                 "firstDay": 1
             }
         });
+        handleTypeChange();
     })
     function  handleTypeChange() {
         var type = $("#type").val();
