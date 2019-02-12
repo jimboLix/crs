@@ -41,14 +41,13 @@
                </select>
                 </div>
                 <div class="col-xs-2">
-               <select name="build" class="form-control select2" id="build" >
-                    <#if builds?? & builds.length > 0>
-                        <#list builds as dict>
-                            <option value="${dict.name}" ${(build ==dict.name)?string('selected="selected"',"")}>${dict.name}</option>
-                        </#list>
-                    <#else>
-                    <option value="">--请选择--</option>
-                </#if>
+                    <select name="build" class="form-control select2" id="build" >
+                        <option value="">--请选择--</option>
+                        <#if builds??>
+                            <#list builds as dict>
+                                <option value="${dict.name}" ${(build ==dict.name)?string('selected="selected"',"")}>${dict.name}</option>
+                            </#list>
+                        </#if>
                 </select>
                 </div>
                <div class="col-xs-2">
