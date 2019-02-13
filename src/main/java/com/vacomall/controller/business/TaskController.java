@@ -167,4 +167,19 @@ public class TaskController extends SuperController {
         }
         return Rest.ok();
     }
+
+    @RequestMapping("/flow")
+    public String taskFlow(String taskId,Model model){
+        //获取节点信息
+        WorkFlowNode workFlowNode = workFlowNodeService.selectById(taskId);
+        //获取流程实例信息
+        String workFlowInstanceId = workFlowNode.getWorkFlowInstanceId();
+//        WorkFlowInstance workFlowInstance = workFlowInstanceService.selectById(workFlowInstanceId);
+        Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
+        wrapper.eq("workFlowInstanceId",workFlowInstanceId);
+        wrapper.orderBy("beginTime",false);
+        List<WorkFlowNode> allFlowNodes = workFlowNodeService.selectList(wrapper);
+        model.addAttribute("allNodes",allFlowNodes);
+        return "system/task/flow";
+    }
 }

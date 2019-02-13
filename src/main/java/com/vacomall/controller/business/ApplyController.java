@@ -160,6 +160,15 @@ public class ApplyController extends SuperController {
         return "system/apply/edit";
     }
 
+    @RequestMapping("/flow")
+    public String applyFlow(String workFlowInstanceId,Model model){
+        Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
+        wrapper.eq("workFlowInstanceId",workFlowInstanceId);
+        wrapper.orderBy("beginTime",false);
+        List<WorkFlowNode> allFlowNodes = workFlowNodeService.selectList(wrapper);
+        model.addAttribute("allNodes",allFlowNodes);
+        return "system/apply/flow";
+    }
     /**
      * 下面两个方法是用来接收页面传递过来的两个不同的参数
      * @param webDataBinder

@@ -42,10 +42,11 @@
 	                <td>
                         <#if instance.isPass == 0 && instance.isEnd == 1>未通过<#elseif instance.isPass == 1 && instance.isEnd == 1>通过<#elseif instance.nodeIndex == - 1>退回<#else>审批中</#if>
                     </td>
-	                <td>
-                        <#if instance.nodeIndex == -1>
-                        <a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="编辑" data-url="/apply/edit?workFlowInstanceId=${(instance.id)!}",data-width="800" data-height="400" > <i class="fa fa-pencil-square-o"></i> 编辑</a>
-                        </#if>
+                      <td>
+                          <a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="申请详情" data-url="/apply/flow?workFlowInstanceId=${(instance.id)!}",data-width="800" data-height="600" > <i class="fa fa-pencil-square-o"></i> 详情</a>
+                          <#if instance.nodeIndex == -1>
+                          <a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="编辑" data-url="/apply/edit?workFlowInstanceId=${(instance.id)!}",data-width="800" data-height="400" > <i class="fa fa-pencil-square-o"></i> 编辑</a>
+                      </#if>
 	                </td>
 	              </tr>
               </#list>
