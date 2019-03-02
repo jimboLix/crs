@@ -1,0 +1,34 @@
+<#include "/common/layout_dl.html">
+<@header>
+</@header>
+<@body>
+<ul class="timeline">
+
+    <#if nodes??>
+    <#list nodes as node>
+    <!-- timeline item -->
+    <li>
+        <!-- timeline icon -->
+        <i class="fa  fa-check-square bg-blue"></i>
+        <div class="timeline-item">
+            <span class="time"><i class="fa fa-clock-o"></i> </span>
+
+            <h3 class="timeline-header"><a href="#">节点名称&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;${(node.nodeName)!}</a></h3>
+
+            <div class="timeline-body">
+                <span class="bg-green">参与角色:</span>&nbsp;&nbsp;&nbsp;&nbsp;${(node.roleName)!}
+            </div>
+
+            <div class="timeline-footer">
+            </div>
+        </div>
+    </li>
+    <!-- END timeline item -->
+</#list>
+</#if>
+</ul>
+</@body>
+<@footer>
+<script type="application/javascript">
+</script>
+</@footer>

@@ -91,13 +91,19 @@ public class FrontController {
     }
 
     @RequestMapping("/romeDetail")
-    public String romeDetail(String romeId, Model model) {
+    public String romeDetail(String romeId, Model model,Date date) {
         if (StringUtils.isEmpty(romeId)) {
             return "redirect:/welcome";
         }
         MeetingRome rome = romeService.selectById(romeId);
         model.addAttribute("rome", rome);
         model.addAttribute("romeId", romeId);
+        //如果没有指定日期则默认当前日期
+        if(null == date){
+            date = new Date();
+        }
+        Format f = new SimpleDateFormat("yyyy-MM-dd");
+        model.addAttribute("date",f.format(date));
         return "front/timetable";
     }
 

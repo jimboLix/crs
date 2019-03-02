@@ -28,9 +28,9 @@
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'month,agendaWeek,agendaDay,listWeek'
+                    right: 'agendaDay,agendaWeek,month,listWeek'
                 },
-                defaultDate: new Date(),
+                defaultDate: $("#date").val(),
                 navLinks: true, // can click day/week names to navigate views
                 editable: false,
                 displayEventEnd: true,
@@ -82,6 +82,7 @@
 	</div>
 	<div class="col-md-6">
 		<input type="hidden" id="romeId" value="${romeId}">
+		<input type="hidden" id="date" value="${date}">
 		<div class="box">
 			<div class="box-header with-border">
 				<h3 class="box-title">${rome.name}时间表</h3>

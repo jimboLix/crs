@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-xs-2">
                <select name="campus" class="form-control select2" id="campus">
-                   <option value="">--请选择--</option>
+                   <option value="">--请选择校区--</option>
                         <#list dictList as dict>
                         <option id="${(dict.value)}" value="${(dict.name)!}" ${(campus ==dict.name)?string('selected="selected"',"")}>${(dict.name)!}</option>
                     </#list>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-xs-2">
                     <select name="build" class="form-control select2" id="build" >
-                        <option value="">--请选择--</option>
+                        <option value="">--请选择教学楼--</option>
                         <#if builds??>
                             <#list builds as dict>
                                 <option value="${dict.name}" ${(build ==dict.name)?string('selected="selected"',"")}>${dict.name}</option>

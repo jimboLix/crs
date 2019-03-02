@@ -86,8 +86,8 @@
                     <h3 class="page-header page-header icon-subheading">#{count!} 会议室 </h3>
                     <div class="row fontawesome-icon-list">
                         <#list romeList! as rome>
-                        <div class="icon-box col-md-3 col-sm-4">
-                            <a class="agile-icon" href="javascript:void(0)" onclick="romeDetail('${rome.id!}')">
+                        <div class="icon-box col-md-3 col-sm-4" onclick="romeDetail('${rome.id!}')">
+                            <a class="agile-icon" href="javascript:void(0)" >
                                 <i class=" fa-minus-square-o" aria-hidden="true"></i><span class="text-muted">${rome.name!}</span>
                             </a>
                         </div>

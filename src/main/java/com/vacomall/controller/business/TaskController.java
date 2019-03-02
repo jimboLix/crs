@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -101,6 +100,8 @@ public class TaskController extends SuperController {
 //        }
         Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
         wrapper.eq("workFlowInstanceId",workFlowInstanceId);
+        //只显示已办结的
+        wrapper.isNotNull("endTime");
         wrapper.orderBy("beginTime",false);
         List<WorkFlowNode> allFlowNodes = workFlowNodeService.selectList(wrapper);
         model.addAttribute("allNodes",allFlowNodes);
