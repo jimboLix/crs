@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="CRS:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="CRS.war">
-      <element id="artifact" artifact-name="CRS:war exploded" />
-    </root>
-  </artifact>
-</component>
