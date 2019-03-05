@@ -58,7 +58,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 	@Override
 	public void updateUser(SysUser sysUser, String[] roleIds) {
 		// TODO Auto-generated method stub
-		sysUser.setPassword(null);
+		//如果前端传来的密码不是空则说明用户修改了密码需要进行更新
+		if(StringUtils.isNotEmpty(sysUser.getPassword())){
+			sysUser.setPassword(ShiroUtil.md51024Pwd(sysUser.getPassword(), sysUser.getUserName()));
+		}else{
+			//否则进行密码保持不变
+			SysUser user = userMapper.selectById(sysUser.getId());
+			sysUser.setPassword(user.getPassword());
+		}
 		//更新用户
 		userMapper.updateById(sysUser);
 		//删除已有权限
