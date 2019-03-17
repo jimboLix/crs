@@ -25,7 +25,7 @@ import com.vacomall.entity.SysUser;
 import com.vacomall.service.ISysLogService;
 /**
  * 登录控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月14日 下午2:54:01
  */
 @Controller

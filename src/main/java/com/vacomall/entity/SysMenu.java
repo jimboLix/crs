@@ -13,8 +13,8 @@ import java.io.Serializable;
  * 菜单表
  * </p>
  *
- * @author GaoJun.Zhou
- * @since 2017-03-06
+ * @author fengmei.li
+ * @since 2019-03-06
  */
 @TableName("sys_menu")
 public class SysMenu extends Model<SysMenu> {

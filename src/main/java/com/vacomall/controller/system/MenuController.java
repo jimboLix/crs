@@ -24,7 +24,7 @@ import com.vacomall.entity.SysMenu;
 import com.vacomall.service.ISysMenuService;
 /**
  * 角色控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月13日 上午10:23:41
  */
 @Controller

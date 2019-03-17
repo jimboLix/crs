@@ -19,7 +19,7 @@ import com.vacomall.entity.SysDept;
 import com.vacomall.service.ISysDeptService;
 /**
  * 部门控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月16日 下午5:03:49
  */
 @Controller

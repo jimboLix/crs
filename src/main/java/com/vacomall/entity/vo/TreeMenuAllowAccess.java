@@ -8,7 +8,7 @@ import com.vacomall.entity.SysMenu;
 
 /**
  * 菜单树+是否有权限表示
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月26日 上午10:34:02
  */
 public class TreeMenuAllowAccess implements Serializable{

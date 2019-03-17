@@ -17,7 +17,7 @@ public class WorkFlowInstance implements Serializable {
     @TableId(type = IdType.INPUT)
     private String id;
     private String workFlowId;
-    private Integer isEnd;//流程是否结束,0,活动，1，结束
+    private Integer isEnd;//流程是否结束,0,活动，1，结束，2撤销
     private String applyUser;//申请人主键
     private Integer isPass;//是否通过，0.否1.是，-1退回
     private String name;//流程名称

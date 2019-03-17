@@ -14,8 +14,8 @@ import com.baomidou.mybatisplus.enums.IdType;
  * 用户表
  * </p>
  *
- * @author GaoJun.Zhou
- * @since 2017-03-06
+ * @author fengmei.li
+ * @since 2019-03-06
  */
 @TableName("sys_user")
 public class SysUser extends Model<SysUser> {
@@ -59,6 +59,16 @@ public class SysUser extends Model<SysUser> {
      */
 	private String deptId;
 
+	/**
+	 * 人员编号
+	 */
+	private String no;
+
+	/**
+	 * 联系电话
+	 * @return
+	 */
+	private String phoneNo;
 
 	public String getId() {
 		return id;
@@ -129,4 +139,19 @@ public class SysUser extends Model<SysUser> {
 		return this.id;
 	}
 
+	public String getNo() {
+		return no;
+	}
+
+	public void setNo(String no) {
+		this.no = no;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
 }

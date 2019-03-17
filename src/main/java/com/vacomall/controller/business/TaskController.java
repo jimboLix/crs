@@ -138,13 +138,6 @@ public class TaskController extends SuperController {
     @ResponseBody
     public Rest deal(String nextUser,String opinion,Integer status,String applyId,String instanceId,String nodeId,Boolean isEnd){
         isEnd = isEnd == null ? false:true;
-        WorkFlowNode workFlowNode = workFlowNodeService.selectById(nodeId);
-//        SysUser user = (SysUser) SecurityUtils.getSubject().getPrincipal();
-//
-//        workFlowNode.setEndTime(new Date());
-//        workFlowNode.setStatus(status);
-//        workFlowNode.setOpinion(opinion);
-//        workFlowNodeService.updateAllColumnById(workFlowNode);
         //同意
         if(status.equals(2)){
             //流程办结
@@ -156,15 +149,7 @@ public class TaskController extends SuperController {
             }
         }else if(status.equals(1)){//不同意
             //流程办结 //如果不同意则办结此流程
-//            if(isEnd){
                 workFlowInstanceService.concludeWorkFlow(applyId,instanceId,nodeId,0,opinion);
-//            }else{
-//
-//            }
-        }else{
-            //退回
-            workFlowInstanceService.turnBack(applyId,instanceId,nodeId,opinion);
-
         }
         return Rest.ok();
     }

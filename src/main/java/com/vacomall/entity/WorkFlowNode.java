@@ -25,7 +25,7 @@ public class WorkFlowNode implements Serializable {
 
     private Date endTime;//结束时间
 
-    private Integer status;//节点状态，0.活动。1.未通过。2。通过-1.退回
+    private Integer status;//节点状态，0.活动。1.未通过。2。通过，3撤销
 
     public String getId() {
         return id;

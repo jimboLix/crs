@@ -16,8 +16,8 @@ import java.io.Serializable;
  * 角色表
  * </p>
  *
- * @author GaoJun.Zhou
- * @since 2017-03-06
+ * @author fengmei.li
+ * @since 2019-03-06
  */
 @TableName("sys_role")
 public class SysRole extends Model<SysRole> {

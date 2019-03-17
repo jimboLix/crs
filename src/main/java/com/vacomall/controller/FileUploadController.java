@@ -23,7 +23,7 @@ import com.vacomall.common.controller.SuperController;
 
 /**
  * 文件上传控制器
- * Created by Gaojun.Zhou 2017年4月28日
+ * Created by fengmei.li 2019年4月28日
  */
 
 @Controller

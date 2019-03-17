@@ -4,13 +4,16 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.vacomall.common.anno.Log;
 import com.vacomall.common.bean.Rest;
 import com.vacomall.common.controller.SuperController;
 import com.vacomall.entity.SysRole;
 import com.vacomall.entity.WorkFlow;
+import com.vacomall.entity.WorkFlowInstance;
 import com.vacomall.entity.vo.Node;
 import com.vacomall.entity.vo.WorkFlowVo;
 import com.vacomall.service.ISysRoleService;
+import com.vacomall.service.WorkFlowInstanceService;
 import com.vacomall.service.WorkFlowService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -36,6 +39,8 @@ public class WorkFlowController extends SuperController {
    private WorkFlowService workFlowService;
    @Autowired
    private ISysRoleService roleService;
+   @Autowired
+   private WorkFlowInstanceService workFlowInstanceService;
 
     @RequestMapping("/list/{pageNo}")
     public String instanceList(Model model, @PathVariable Integer pageNo, Integer pageSize){
@@ -88,6 +93,19 @@ public class WorkFlowController extends SuperController {
         BeanUtils.copyProperties(workFlow,flow);
         flow.setWorkFlowDetail(detail);
         this.workFlowService.insertOrUpdate(flow);
+        return Rest.ok();
+    }
+
+    /**
+     * 撤销申请
+     * @param id
+     * @return
+     */
+    @Log("撤销申请")
+    @RequestMapping("/backout")
+    @ResponseBody
+    public Rest backout(String id){
+        workFlowInstanceService.backOut(id);
         return Rest.ok();
     }
 }

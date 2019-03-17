@@ -16,7 +16,7 @@ import com.vacomall.entity.SysUser;
 import com.vacomall.service.ISysUserService;
 /**
  * 用户中心控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月16日 下午4:24:04
  */
 @Controller
@@ -94,6 +94,9 @@ public class MeController extends SuperController{
     	if(StringUtils.isNotBlank(user.getUserImg())){
     		user.setUserImg(sysUser.getUserImg());
     	}
+    	if(StringUtils.isNotEmpty(sysUser.getPhoneNo())){
+			user.setPhoneNo(sysUser.getPhoneNo());
+		}
     	sysUserService.updateById(user);
     	model.addAttribute("sysUser", user);
     	redirectAttributes.addFlashAttribute("info","更新成功.");

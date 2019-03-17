@@ -7,7 +7,7 @@ import java.util.List;
 import com.vacomall.entity.SysMenu;
 /**
  * 菜单树
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月26日 上午10:34:31
  */
 public class TreeMenu implements Serializable{

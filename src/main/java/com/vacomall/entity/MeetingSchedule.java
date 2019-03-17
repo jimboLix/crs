@@ -30,6 +30,8 @@ public class MeetingSchedule implements Serializable {
 
     private Date endTime;//会议结束时间
 
+    private Integer backout = 2;//是否撤销，1表示已撤销，其他的表示正常
+
     public String getId() {
         return id;
     }
@@ -84,5 +86,13 @@ public class MeetingSchedule implements Serializable {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getBackout() {
+        return backout;
+    }
+
+    public void setBackout(Integer backout) {
+        this.backout = backout;
     }
 }

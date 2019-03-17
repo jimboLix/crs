@@ -38,7 +38,7 @@ public class FrontController {
      * 'startDate' => date('Y-m-d H:i',$row['starttime']),//事件开始时间
      * 'endDate' => date('Y-m-d H:i',$row['endtime']),//结束时间
      *
-     * @return 2018-11-26
+     * @return 2019-11-26
      */
     @RequestMapping("/data")
     @ResponseBody

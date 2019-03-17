@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 错误控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月14日 下午6:06:01
  */
 @Controller

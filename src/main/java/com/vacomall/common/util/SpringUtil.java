@@ -8,7 +8,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 /**
  * Spring 工具类
- * @author gaojun.zhou
+ * @author fengmei.li
  * @date 2016年8月23日
  *
  */

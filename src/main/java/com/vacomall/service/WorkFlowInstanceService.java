@@ -23,14 +23,6 @@ public interface WorkFlowInstanceService extends IService<WorkFlowInstance> {
 
     void turnTask(String applyId, String instanceId, String nodeId, String opinion, String nextUserId);
 
-    /**
-     * 退回
-     * @param applyId
-     * @param instanceId
-     * @param nodeId
-     * @param opinion
-     */
-    void turnBack(String applyId,String instanceId,String nodeId,String opinion);
 
     /**
      * 查看流程的详细信息
@@ -38,4 +30,6 @@ public interface WorkFlowInstanceService extends IService<WorkFlowInstance> {
      * @return
      */
     List<Map<String,Object>> getDetail(String workFlowInstanceId);
+
+    Boolean backOut(String instanceId);
 }

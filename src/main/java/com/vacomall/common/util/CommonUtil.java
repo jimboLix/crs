@@ -14,7 +14,7 @@ import org.springframework.util.CollectionUtils;
 
 /**
  * 通用工具类
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月27日 上午11:51:21
  */
 public class CommonUtil {

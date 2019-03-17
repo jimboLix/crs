@@ -13,8 +13,8 @@ import com.baomidou.mybatisplus.enums.IdType;
  * 用户角色关联表
  * </p>
  *
- * @author GaoJun.Zhou
- * @since 2017-03-06
+ * @author fengmei.li
+ * @since 2019-03-06
  */
 @TableName("sys_user_role")
 public class SysUserRole extends Model<SysUserRole> {

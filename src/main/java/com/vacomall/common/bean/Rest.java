@@ -1,7 +1,7 @@
 package com.vacomall.common.bean;
 /**
- * @author GaoJun.Zhou
- * @Time：2017年9月6日 下午1:29:08
+ * @author fengmei.li
+ * @Time：2019年9月6日 下午1:29:08
  * @version 1.0
  */
 public class Rest {

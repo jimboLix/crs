@@ -25,7 +25,7 @@ public class WorkFlowNodeServiceImpl extends ServiceImpl<WorkFlowNodeMapper, Wor
         List<WorkFlowNodeVo> workFlowNodes;
         Map<String,Object> params = new HashMap<>();
         params.put("userId",userId);
-        params.put("status",status);
+        params.put("status",3);
         Page<WorkFlowNodeVo> page = new Page<>();
         page.setCurrent(pageNo);
         page.setSize(pageSize);

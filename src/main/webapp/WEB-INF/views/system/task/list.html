@@ -37,12 +37,12 @@
 	                <td>${(node.workFlowName)!}</td>
 	                <td>${(node.beginTime?string('yyyy/MM/dd HH:mm:ss'))!'--'}</td>
 	                <td>
-                        <#if node.status == 0>活动<#elseif node.status == 1 >未通过<#elseif node.status == 2>同意<#else>退回</#if>
+                        <#if node.status == 0>活动<#elseif node.status == 1 >未通过<#elseif node.status == 2>同意<#else>撤销</#if>
                     </td>
                       <td>
                           <a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="审批详情" data-url="/task/flow?taskId=${(node.id)!}",data-width="1200" data-height="600" > <i class="fa fa-search-plus"></i> 详情</a>
-                          <#if node.status == 0>
-                        <a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="审批" data-url="/task/detail?taskId=${(node.id)!}",data-width="1200" data-height="800" > <i class="fa fa-pencil-square-o"></i> 审批</a>
+                          <#if node.status ==  0>
+                        <a class="btn btn-primary btn-xs dialog" href="javascript:;" data-title="审批" data-url="/task/detail?taskId=${(node.id)!}",data-width="1200" data-height="600" > <i class="fa fa-pencil-square-o"></i> 审批</a>
                      </#if>
                     </td>
 	              </tr>

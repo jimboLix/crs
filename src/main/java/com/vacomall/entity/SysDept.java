@@ -13,8 +13,8 @@ import java.io.Serializable;
  * 部门表
  * </p>
  *
- * @author GaoJun.Zhou
- * @since 2017-03-06
+ * @author fengmei.li
+ * @since 2019-03-06
  */
 @TableName("sys_dept")
 public class SysDept extends Model<SysDept> {

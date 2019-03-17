@@ -12,7 +12,7 @@ public interface WorkFlowNodeService extends IService<WorkFlowNode> {
     /**
      * 获取我的任务
      * @param userId 用户id
-     * @param status 任务状态 0.活动。1.通过。2。退回
+     * @param status 任务状态 0.活动。1.通过。2。通过3，撤销
      * @return
      */
     Page<WorkFlowNodeVo> myTasks(String userId, Integer status, Integer pageNo, Integer pageSize);

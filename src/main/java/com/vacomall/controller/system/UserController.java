@@ -28,7 +28,7 @@ import com.vacomall.service.ISysUserRoleService;
 import com.vacomall.service.ISysUserService;
 /**
  * 用户控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月13日 上午10:22:41
  */
 @Controller
@@ -134,5 +134,16 @@ public class UserController extends SuperController{
     	}
     	return Rest.ok();
     }
+
+    @RequestMapping("/checkNo")
+	@ResponseBody
+	public Rest checkNo(String no){
+		List<SysUser> list = sysUserService.selectList(new EntityWrapper<SysUser>().eq("no", no));
+		if(list.size() > 0){
+			return Rest.failure("用户编号已存在");
+		}
+    	return Rest.ok();
+	}
+
     
 }

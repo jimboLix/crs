@@ -22,6 +22,7 @@ public class MeetingScheduleServiceImpl extends ServiceImpl<MeetingScheduleMappe
         Wrapper<MeetingSchedule> wrapper = new EntityWrapper<>();
         if(!StringUtils.isEmpty(romeId) && begin != null && null != end){
             wrapper.addFilter("romeId={0}",romeId);
+            wrapper.addFilter("backout!={0}",1);
             wrapper.between("beginTime",begin,end).between("endTime",begin,end);
             List<MeetingSchedule> meetingSchedules = meetingScheduleMapper.selectList(wrapper);
             return meetingSchedules;

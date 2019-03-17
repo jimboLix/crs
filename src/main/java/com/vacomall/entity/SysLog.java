@@ -16,8 +16,8 @@ import java.io.Serializable;
  * 日志表
  * </p>
  *
- * @author GaoJun.Zhou
- * @since 2017-03-06
+ * @author fengmei.li
+ * @since 2019-03-06
  */
 @TableName("sys_log")
 public class SysLog extends Model<SysLog> {

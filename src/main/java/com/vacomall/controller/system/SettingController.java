@@ -18,7 +18,7 @@ import com.vacomall.entity.SysSetting;
 import com.vacomall.service.ISysSettingService;
 /**
  * 系统设置控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月16日 下午4:24:13
  */
 @Controller

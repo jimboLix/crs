@@ -25,7 +25,7 @@ import com.vacomall.service.ISysUserService;
 
 /**
  * shiro Realm
- * @author jameszhou
+ * @author lifenggmei
  *
  */
 public class MyRealm extends AuthorizingRealm{

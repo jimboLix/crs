@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.vacomall.common.controller.SuperController;
 /**
  * 监控
- * @author Gaojun.Zhou
- * @date 2017年2月5日 下午3:38:19
+ * @author fengmei.li
+ * @date 2019年2月5日 下午3:38:19
  */
 @Controller
 @RequestMapping("/system/monitor")

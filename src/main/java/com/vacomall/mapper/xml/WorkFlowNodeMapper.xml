@@ -26,7 +26,7 @@
                 AND reviewerId = #{userId}
             </if>
             <if test="status != null">
-                AND status = #{status}
+                AND status != #{status}
             </if>
         </where>
         ) t4 ON t4.applyUser=t3.id ORDER BY t4.beginTime desc

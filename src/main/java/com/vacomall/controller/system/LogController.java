@@ -17,7 +17,7 @@ import com.vacomall.entity.SysLog;
 import com.vacomall.service.ISysLogService;
 /**
  * 日志控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月13日 上午10:22:41
  */
 @Controller

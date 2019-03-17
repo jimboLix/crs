@@ -39,6 +39,8 @@
               <tr>
                 <th  width="100px"><input name="userState" type="checkbox" class="minimal checkbox-toolbar"> 行号</th>
                 <th>用户名</th>
+                <th>用户编号</th>
+                <th>用户电话</th>
                 <th>描述</th>
                 <th>创建时间</th>
                 <th>部门</th>
@@ -54,6 +56,8 @@
 	                	</label>
 	                </td>
 	                <td>${(user.userName)!}</td>
+	                <td>${(user.no)!}</td>
+	                <td>${(user.phoneNo)!}</td>
 	                <td>${(user.userDesc)!'--'}</td>
 	                <td>${(user.createTime?string('yyyy/MM/dd HH:mm:ss'))!}</td>
 	                <td>${(user.deptName)!'--'}</td>

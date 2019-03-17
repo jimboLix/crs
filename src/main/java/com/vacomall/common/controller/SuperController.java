@@ -16,7 +16,7 @@ import com.vacomall.common.util.HttpUtil;
 
 /**
  * 基础控制器
- * @author Gaojun.Zhou
+ * @author fengmei.li
  * @date 2016年12月27日 上午11:50:57
  */
 public class SuperController {

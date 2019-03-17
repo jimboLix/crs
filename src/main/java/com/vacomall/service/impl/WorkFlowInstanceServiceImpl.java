@@ -74,24 +74,32 @@ public class WorkFlowInstanceServiceImpl extends ServiceImpl<WorkFlowInstanceMap
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void concludeWorkFlow(String applyId, String instanceId, String nodeId,Integer isPass,String opinion) {
+        //获取流程实例
         WorkFlowInstance workFlowInstance = this.selectById(instanceId);
+        //设置流程结束状态
         workFlowInstance.setIsEnd(1);
+        //设置是否通过（同意 or 不同意）
         workFlowInstance.setIsPass(isPass);
+        //更新流程实例
         this.updateAllColumnById(workFlowInstance);
+        //获取流程节点
         WorkFlowNode workFlowNode = this.workFlowNodeService.selectById(nodeId);
+        //设置当前节点意见
         workFlowNode.setOpinion(opinion);
+        //设置流程节点结束时间
         workFlowNode.setEndTime(new Date());
+        //获取当前系统用户
         SysUser user = (SysUser) SecurityUtils.getSubject().getPrincipal();
+        //设置当前节点审批人员
         workFlowNode.setReviewerId(user.getId());
         workFlowNode.setReviewerName(user.getUserName());
-        workFlowNode.setEndTime(new Date());
         //通过
         if(isPass.equals(1)){
             //设置通过状态
             workFlowNode.setStatus(2);
             //如果是通过则需要设置实验室使用时间
             Apply apply = applyService.selectById(applyId);
-            MeetingRome rome = romeService.selectById(apply.getRomeId());
+            //以下是设置会议室的调度表，即会议室时间安排
             MeetingSchedule meetingSchedule = new MeetingSchedule();
             meetingSchedule.setApplyid(applyId);
             meetingSchedule.setDetail(apply.getDetail());
@@ -150,43 +158,6 @@ public class WorkFlowInstanceServiceImpl extends ServiceImpl<WorkFlowInstanceMap
 
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public void turnBack(String applyId, String instanceId, String nodeId, String opinion) {
-        //获取当前节点
-        WorkFlowNode workFlowNode = workFlowNodeService.selectById(nodeId);
-        SysUser user = (SysUser) SecurityUtils.getSubject().getPrincipal();
-        workFlowNode.setEndTime(new Date());
-        workFlowNode.setReviewerName(user.getUserName());
-        workFlowNode.setReviewerId(user.getId());
-        workFlowNode.setOpinion(opinion);
-        int currentIndex = workFlowNode.getNodeIndex();
-        //设置退回状态
-        workFlowNode.setStatus(-1);
-        workFlowNode.setNodeIndex(-1);
-        //更新
-        workFlowNodeService.updateAllColumnById(workFlowNode);
-        //获取流程实例，更新当前流程所在的节点
-        WorkFlowInstance workFlowInstance = this.selectById(instanceId);
-        //获取上一节点
-        int i = currentIndex - 1;
-        //如果i小于0则说明退回的是申请人，否则退回到上一个节点
-        if(i < 0){
-            //不需要获取上一节点
-            workFlowInstance.setNodeIndex(-1);//-1表示在申请人节点
-        }else{
-            //设置流程所在的位置
-            workFlowInstance.setNodeIndex(i);
-            //设置上一节点激活
-            WorkFlowNode node = workFlowNodeService.getNodeByWorkFlowInstanceAndIndex(instanceId, i);
-            workFlowInstance.setIsPass(-1);
-            node.setStatus(0);
-            workFlowNodeService.updateAllColumnById(node);
-        }
-        //更改
-        this.updateAllColumnById(workFlowInstance);
-    }
-
     @Override
     public List<Map<String, Object>> getDetail(String workFlowInstanceId) {
         if(StringUtils.isEmpty(workFlowInstanceId)){
@@ -197,5 +168,48 @@ public class WorkFlowInstanceServiceImpl extends ServiceImpl<WorkFlowInstanceMap
             return maps;
         }
         return null;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Boolean backOut(String instanceId) {
+        //根据id获取实例流程
+        WorkFlowInstance workFlowInstance = this.selectById(instanceId);
+        //判断流程是否结束
+        if(workFlowInstance != null){
+            Integer isEnd = workFlowInstance.getIsEnd();
+            //没有结束
+            if(null != isEnd && isEnd != 1){
+                workFlowInstance.setIsEnd(2);
+                //设置流程当前所在节点的状态为已撤销
+                //先获取当前所在节点
+                Wrapper<WorkFlowNode> wrapper = new EntityWrapper<>();
+                wrapper.eq("workFlowInstanceId",instanceId);
+                wrapper.eq("nodeIndex",workFlowInstance.getNodeIndex());
+                WorkFlowNode workFlowNode = workFlowNodeService.selectOne(wrapper);
+                //设置该节点状态为已撤销
+                workFlowNode.setStatus(3);
+                workFlowNodeService.updateById(workFlowNode);
+            }else if(null != isEnd && isEnd == 1){
+                //结束的，也是设置状态是已撤销，且将会议室调度表的记录设为已撤销
+                workFlowInstance.setIsEnd(2);
+                //根据instanceId查apply
+                Wrapper<Apply> wrapper = new EntityWrapper<>();
+                wrapper.eq("workFlowInstanceId",instanceId);
+                Apply apply = applyService.selectOne(wrapper);
+                if(null != apply){
+                    //根据apply Id获取t_schedule
+                    Wrapper<MeetingSchedule> mWraper = new EntityWrapper<>();
+                    mWraper.eq("applyid",apply.getId());
+                    MeetingSchedule meetingSchedule = meetingScheduleService.selectOne(mWraper);
+                    if(meetingSchedule != null){
+                        meetingSchedule.setBackout(1);
+                        meetingScheduleService.updateById(meetingSchedule);
+                    }
+                }
+            }
+        }
+        this.updateById(workFlowInstance);
+        return true;
     }
 }
