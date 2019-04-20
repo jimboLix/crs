@@ -56,6 +56,7 @@ public class RomeController extends SuperController {
             pageSize = 10;
         }
         Page<MeetingRome> page = getPage(pageNo, pageSize);
+        //创造查询的wrapper，是mybatis plus的对象
         EntityWrapper<MeetingRome> wrapper = new EntityWrapper<MeetingRome>();
         if(StringUtils.isNotEmpty(name)){
             wrapper.like("name",name);
@@ -92,6 +93,14 @@ public class RomeController extends SuperController {
         }
         Page<MeetingRome> romeList = romeService.selectPage(page, wrapper);
         List<Dict> dictList = this.dictService.findByTypeCode("0010");
+//        //如果查询到的会议室数量为0，则根据会议室容量按一定范围查询
+//        if(romeList.getTotal()== 0 && null != volume && !volume.equals(0)){
+//            Integer maxVolume = volume + 20;
+//            Integer minVolume = volume - 20;
+//            //或的关系，就是会议室容量等于指定人数或者会议室容量少于指定容量20人或者大于指定容量20人的范围内
+//            wrapper.or().between("volume", minVolume, maxVolume);
+//            romeList = romeService.selectPage(page,wrapper);
+//        }
         model.addAttribute("dictList",dictList);
         model.addAttribute("pageData",romeList);
         return "system/rome/list";
