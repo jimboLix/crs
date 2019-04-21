@@ -10,6 +10,7 @@ import com.vacomall.entity.Dict;
 import com.vacomall.entity.MeetingRome;
 import com.vacomall.service.DictService;
 import com.vacomall.service.RomeService;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -59,22 +61,28 @@ public class RomeController extends SuperController {
         //创造查询的wrapper，是mybatis plus的对象
         //具体使用百度https://blog.csdn.net/weixin_30512027/article/details/83270344
         EntityWrapper<MeetingRome> wrapper = new EntityWrapper<MeetingRome>();
+        //备用的查询的wrapper
+        EntityWrapper<MeetingRome> newWrapper = new EntityWrapper<>();
         if(StringUtils.isNotEmpty(name)){
             wrapper.like("name",name);
+            newWrapper.like("name",name);
             model.addAttribute("name",name);
         }
         if(StringUtils.isNotEmpty(no)){
             wrapper.like("no",no);
+            newWrapper.like("no",no);
             model.addAttribute("no",no);
         }
 
         if(StringUtils.isNotEmpty(location)){
             wrapper.like("location",location);
+            newWrapper.like("location",location);
             model.addAttribute("location",location);
         }
 
         if(StringUtils.isNotEmpty(campus)){
             wrapper.like("campus",campus);
+            newWrapper.like("campus",campus);
             model.addAttribute("campus",campus);
             List<Dict> list = this.dictService.selectList(new EntityWrapper<Dict>().eq("name", campus));
             if(!CollectionUtils.isEmpty(list)){
@@ -83,14 +91,14 @@ public class RomeController extends SuperController {
             List<Dict> builds = this.dictService.selectList("0011",campus+"-");
             model.addAttribute("builds",builds);
         }
-
+        if(StringUtils.isNotEmpty(build)){
+            wrapper.like("building",build);
+            newWrapper.like("building",build);
+            model.addAttribute("build",build);
+        }
         if(null != volume && !volume.equals(0)){
             wrapper.eq("volume",volume);
             model.addAttribute("volume",volume);
-        }
-        if(StringUtils.isNotEmpty(build)){
-            wrapper.like("building",build);
-            model.addAttribute("build",build);
         }
         Page<MeetingRome> romeList = romeService.selectPage(page, wrapper);
         //查询校区字典项
@@ -100,8 +108,8 @@ public class RomeController extends SuperController {
             Integer maxVolume = volume + 20;
             Integer minVolume = volume - 20;
             //或的关系，就是会议室容量等于指定人数或者会议室容量少于指定容量20人或者大于指定容量20人的范围内
-            wrapper.or().between("volume", minVolume, maxVolume);
-            romeList = romeService.selectPage(page,wrapper);
+            newWrapper.between("volume", minVolume, maxVolume);
+            romeList = romeService.selectPage(page,newWrapper);
         }
         model.addAttribute("dictList",dictList);
         model.addAttribute("pageData",romeList);
