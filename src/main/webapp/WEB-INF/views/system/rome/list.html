@@ -123,7 +123,6 @@
         $("#build").empty();
         var pid = $(this).find("option:selected").attr("id");
         $.post('/system/dict/getBuild',{pid:pid},function(response){
-            debugger;
             if(response.code==200){
                 $("#build").select2({
                     data:response.data
